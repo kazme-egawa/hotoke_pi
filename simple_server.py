@@ -1,6 +1,6 @@
 import liblo, sys
 try:
-    server = liblo.Server(8000)
+    server = liblo.Server(5005)
 except liblo.ServerError, err:
     print str(err)
     sys.exit()
