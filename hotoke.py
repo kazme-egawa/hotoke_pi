@@ -17,6 +17,7 @@ target = liblo.Address("localhost",5005)
 # Setup Progress Bar
 pbar = tqdm(["HOTOKE", "NO", "KAO"])
 num = 0
+hotoke = ["HOTOKE", "NO", "KAO"]
 
 while True:
     try:
@@ -30,7 +31,7 @@ while True:
         if sensor_value > threshold_value:
             pbar.update()
             num += 1
-            liblo.send(target, "/foo/bar", num, "sandomade")
+            liblo.send(target, "/foo/bar", num, hotoke[num])
 
         print("sensor_value = %d" %sensor_value)
         sleep(0.2)
