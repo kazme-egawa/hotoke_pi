@@ -11,7 +11,7 @@ grovepi.pinMode(sound_sensor,"INPUT")
 threshold_value = 400
 
 # Setup OSC Client
-target = liblo.Address("192.168.1.10",5005)
+target = liblo.Address("localhost",5005)
 
 # Setup Progress Bar
 pbar = tqdm(["HOTOKE", "NO", "KAO"])
@@ -24,12 +24,12 @@ while True:
 
         if num >= 3 :
             print("BYE\n\r")
-            liblo.send(target, "/foo/bar", 1, "sandomade")
             break
 
         if sensor_value > threshold_value:
             pbar.update()
             num += 1
+            liblo.send(target, "/foo/bar", num, "sandomade")
 
         print("sensor_value = %d" %sensor_value)
         sleep(0.2)
