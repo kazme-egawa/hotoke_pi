@@ -24,7 +24,7 @@ while True:
 
         if num >= 3 :
             print("BYE\n\r")
-            liblo.send(target, "/foo/msg1", 1, "test")
+            liblo.send(target, "/foo/bar", 1, "sandomade")
             break
 
         if sensor_value > threshold_value:
