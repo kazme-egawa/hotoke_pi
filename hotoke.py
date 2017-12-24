@@ -28,7 +28,7 @@ while True:
             num += 1
 
         print("sensor_value = %d" %sensor_value)
-        sleep(0.1)
+        sleep(0.2)
 
     except IOError:
         print("Error")
