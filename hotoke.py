@@ -31,7 +31,7 @@ while True:
         if sensor_value > threshold_value:
             pbar.update()
             num += 1
-            liblo.send(target, "/foo/bar", num, hotoke[num])
+            liblo.send(target, "/foo/bar", num, hotoke[num-1])
 
         print("sensor_value = %d" %sensor_value)
         sleep(0.2)
