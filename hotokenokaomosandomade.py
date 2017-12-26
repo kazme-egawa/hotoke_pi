@@ -41,12 +41,12 @@ while True:
             # switch on for 5 seconds
             grovepi.digitalWrite(relay,1)
             print ("on")
-            time.sleep(10)
+            sleep(10)
 
             # switch off for 5 seconds
             grovepi.digitalWrite(relay,0)
             print ("off")
-            time.sleep(5)
+            sleep(5)
             break
 
         if sensor_value > threshold_value:
