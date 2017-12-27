@@ -33,7 +33,7 @@ while True:
 
         if num == 2:
             grovepi.digitalWrite(led,hotoke)
-            hotoke = !hotoke
+            hotoke = not(hotoke)
             print("KAO MO")
 
         if num >= 3 :
