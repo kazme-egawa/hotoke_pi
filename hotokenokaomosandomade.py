@@ -1,5 +1,4 @@
 from time import sleep
-from tqdm import tqdm
 import grovepi
 
 # Connect the Grove Sound Sensor to analog port A0
@@ -20,20 +19,22 @@ grovepi.pinMode(relay,"OUTPUT")
 # The threshold
 threshold_value = 400
 
-# Setup Progress Bar
-pbar = tqdm(["HOTOKE", "NO", "KAO"])
+# Setup Progress
 num = 0
-hotoke = ["HOTOKE", "NO", "KAO"]
+hotoke = True
 
 while True:
     try:
         # Read the sound level
         sensor_value = grovepi.analogRead(sound_sensor)
         if num == 1:
-            grovepi.analogWrite(led,100)
+            grovepi.digitalWrite(led,1)
+            print("HOTOKE NO")
 
         if num == 2:
-            grovepi.digitalWrite(led,1)
+            grovepi.digitalWrite(led,hotoke)
+            hotoke = !hotoke
+            print("KAO MO")
 
         if num >= 3 :
             print("SANDOMADE\n\r")
@@ -58,6 +59,7 @@ while True:
 
     except KeyboardInterrupt:
         grovepi.digitalWrite(relay,0)
+        grovepi.digitalWrite(led,0)
         break
     except IOError:
         print ("Error")
