@@ -51,7 +51,6 @@ while True:
             break
 
         if sensor_value > threshold_value:
-            pbar.update()
             num += 1
 
         print("sensor_value = %d" %sensor_value)
