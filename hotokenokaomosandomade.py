@@ -25,10 +25,10 @@ threshold_value = 400
 num = 0
 hotoke = True
 
-def nidoarukotohasandoaru(){
+def nidoarukotohasandoaru():
     url = "https://maker.ifttt.com/trigger/" + EVENT + "/with/key/" + KEY
     requests.post(url=url)
-}
+
 
 while True:
     try:
