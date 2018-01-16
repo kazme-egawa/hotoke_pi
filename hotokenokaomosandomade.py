@@ -5,7 +5,7 @@ import requests
 # Maker Webhooks Name
 EVENT = "RAIJIN"
 # Maker Webhooks Key
-KEY = ""
+KEY = "lMcvs3mJSx-47ro5mSsH4"
 
 
 # Connect the Grove Sound Sensor to analog port A0
