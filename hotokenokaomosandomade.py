@@ -45,6 +45,7 @@ while True:
 
         if num >= 3 :
             print("SANDOMADE\n\r")
+            grovepi.digitalWrite(led,0)
             nidoarukotohasandoaru()
             break
 
