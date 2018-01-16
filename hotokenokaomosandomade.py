@@ -1,5 +1,12 @@
 from time import sleep
 import grovepi
+import requests
+
+# Maker Webhooks Name
+EVENT = "RAIJIN"
+# Maker Webhooks Key
+KEY = ""
+
 
 # Connect the Grove Sound Sensor to analog port A0
 # SIG,NC,VCC,GND
@@ -11,17 +18,17 @@ led = 2
 grovepi.pinMode(led,"OUTPUT")
 grovepi.digitalWrite(led,0)
 
-# Connect the Grove Relay to digital port D4
-# SIG,NC,VCC,GND
-relay = 4
-grovepi.pinMode(relay,"OUTPUT")
-
 # The threshold
 threshold_value = 400
 
 # Setup Progress
 num = 0
 hotoke = True
+
+def nidoarukotohasandoaru(){
+    url = "https://maker.ifttt.com/trigger/" + EVENT + "/with/key/" + KEY
+    requests.post(url=url)
+}
 
 while True:
     try:
@@ -38,16 +45,7 @@ while True:
 
         if num >= 3 :
             print("SANDOMADE\n\r")
-
-            # switch on for 5 seconds
-            grovepi.digitalWrite(relay,1)
-            print ("on")
-            sleep(10)
-
-            # switch off for 5 seconds
-            grovepi.digitalWrite(relay,0)
-            print ("off")
-            sleep(5)
+            nidoarukotohasandoaru()
             break
 
         if sensor_value > threshold_value:
@@ -57,7 +55,6 @@ while True:
         sleep(0.2)
 
     except KeyboardInterrupt:
-        grovepi.digitalWrite(relay,0)
         grovepi.digitalWrite(led,0)
         break
     except IOError:
